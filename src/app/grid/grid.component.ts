@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-grid',
@@ -7,12 +7,19 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class GridComponent implements OnInit {
 
+  @Output()
+  public removeItem: EventEmitter<string> = new EventEmitter<string>();
+
   @Input()
   public source: Array<string>;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  public remove(taskToRemove: string): void {
+    this.removeItem.emit(taskToRemove);
   }
 
 }

@@ -30,4 +30,11 @@ export class TodoComponent implements OnInit {
     this.view = false;
   }
 
+  public removeItemFromArray(taskToRemove: string): void {
+    const indexToRemove = this.todoTasks.indexOf(taskToRemove);
+    if (indexToRemove >= 0) {
+      this.todoTasks.splice(indexToRemove, 1);
+    }
+  }
+
 }

@@ -1,4 +1,4 @@
-import { Input } from '@angular/core';
+import { Input, EventEmitter, Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,12 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
+  @Output()
+  public removeItem: EventEmitter<string> = new EventEmitter<string>();
+
   @Input()
   public source: Array<string>;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  public remove(taskToRemove: string): void {
+    this.removeItem.emit(taskToRemove);
   }
 
 }

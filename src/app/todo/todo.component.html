@@ -7,6 +7,6 @@
   <button (click)="addNewTask()">dodaj</button>
 </div>
 <div class="todo-tasks">
-  <app-list *ngIf="view" [source]="todoTasks"></app-list>
-  <app-grid *ngIf="!view" [source]="todoTasks"></app-grid>
+  <app-list *ngIf="view" [source]="todoTasks" (removeItem)="removeItemFromArray($event)"></app-list>
+  <app-grid *ngIf="!view" [source]="todoTasks" (removeItem)="removeItemFromArray($event)"></app-grid>
 </div>
